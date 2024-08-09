@@ -49,14 +49,16 @@ function FromAdd({ work, setWork, personal, setPersonal, setVisible}) {
 			setPersonal([...personal, data])
 		}
 		setVisible(false)
+		
+		setNewTask({...newTask, task:'', date: '', type: ''})
     }
 
 
   return (
     <form className='flex flex-col gap-5' onSubmit={(e) => submitForm(e)}>
         <h1 className=' text-2xl font-bold text-black'>New Task</h1>
-        <TextField required name='task' value={newTask.task} id="task" label="Task" variant="outlined" onChange={(e) => handleChangeTask(e)}/>
-        <TextField required name='date' type='date' id="date" variant="outlined" onChange={(e) => handleChangeDate(e)}/>
+        <TextField required value={newTask.task} name='task' id="task" label="Task" variant="outlined" onChange={(e) => handleChangeTask(e)}/>
+        <TextField required value={newTask.date} name='date' type='date' id="date" variant="outlined" onChange={(e) => handleChangeDate(e)}/>
 		<FormControl fullWidth>
 			<InputLabel id="demo-simple-select-label">Type</InputLabel>
 			<Select
@@ -66,6 +68,7 @@ function FromAdd({ work, setWork, personal, setPersonal, setVisible}) {
 			label="Age"
 			onChange={handleChange}
 			name='type'
+			required
 			>
 			<MenuItem value='work'>work</MenuItem>
 			<MenuItem value='personal'>personal</MenuItem>

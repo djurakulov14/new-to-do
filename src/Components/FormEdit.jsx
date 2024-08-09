@@ -14,6 +14,12 @@ function FromEdit({item, arr, setArr, setVisible}) {
         
     };
 
+	const updateTask = (id, updatedProperties) => {
+		const updatedTasks = arr.map(task => 
+		  task.id === id ? { ...task, ...updatedProperties } : task
+		);
+		setArr(updatedTasks);
+	};
 
     const submitForm = (e) => {      
         e.preventDefault()
@@ -25,9 +31,8 @@ function FromEdit({item, arr, setArr, setVisible}) {
         fm.forEach((value, key) => {
           data[key] = value
         })
-
         
-        setArr([...arr.filter(i => i.id != item.id), {...item, task: data.task, date: data.date }])
+        updateTask(item.id, data)
         setVisible(false)
         
     }

@@ -11,22 +11,25 @@ export const Task = ({item, arr, setArr}) => {
     const [visible, setVisible] = useState(false)
 
     let found = arr.findIndex((obj => obj.id == item.id))
-    
-    function complete() {
-        setArr([...arr.filter(i => i.id != item.id), {...item, isDone: !item.isDone}])
-
-    }
 
     function remove() {
         setArr(arr.filter(i => i.id != item.id))
 
     }
 
+    const updateTask = (id, updatedProperties) => {
+        const updatedTasks = arr.map(task => 
+          task.id === id ? { ...task, ...updatedProperties } : task
+        );
+        setArr(updatedTasks);
+    };
+    
+
   return (
     <>
     <div className=' flex justify-between w-full'>
         <div className="left flex justify-between gap-3">
-            <Checkbox checked={item.isDone} onChange={() => complete()}/>
+            <Checkbox checked={item.isDone} onChange={() => updateTask(item.id, {isDone: !item.isDone})}/>
             <div className="task flex flex-col">
                 <span className={item.isDone ? 'line-through' : ' no-underline'}>{item.task}</span>
                 <span>{item.date}</span>

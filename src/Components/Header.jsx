@@ -12,7 +12,7 @@ function Header({work, setWork, personal, setPersonal}) {
 
 
   return (
-    <header className='  w-full text-white  py-7 bg-[#67AD5B]'>
+    <header data-aos="fade-down" className='  w-full text-white  py-7 bg-[#67AD5B]'>
         <div className="container m-auto flex justify-between items-center">
             <div className=" flex gap-3 items-center">
                 <BiFoodMenu size={35}/>
