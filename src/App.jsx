@@ -5,107 +5,162 @@ import MainBlockType from "./Components/MainBlockType"
 
 function App() {
 
-  const [arr, setArr] = useState({
-	work: [
-		{
-			id:1, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: false,
-			date: "08.08.2024",
-			note: ""
-		},
-		{
-			id:2, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: true,
-			date: "08.08.2024",
-			note: ""
-		},
-		{
-			id:3, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: true,
-			date: "08.08.2024",
-			note: ""
-		},
-		{
-			id:4, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: false,
-			date: "08.08.2024",
-			note: ""
-		},
-		{
-			id:5, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: false,
-			date: "08.08.2024",
-			note: ""
-		},
-		{
-			id:6, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: true,
-			date: "08.08.2024",
-			note: ""
-		}
-	],
-	personal: [
-		{
-			id:1, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: false,
-			date: "08.08.2024",
-			note: ""
-		},
-		{
-			id:2, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: true,
-			date: "08.08.2024",
-			note: ""
-		},
-		{
-			id:3, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: true,
-			date: "08.08.2024",
-			note: ""
-		},
-		{
-			id:4, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: false,
-			date: "08.08.2024",
-			note: ""
-		},
-		{
-			id:5, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: false,
-			date: "08.08.2024",
-			note: ""
-		},
-		{
-			id:6, 
-			task: "Lorem ipsum dolor sit amet.",
-			isDone: true,
-			date: "08.08.2024",
-			note: ""
-		}
-	],
-  })
+  const [personal, setPersonal] = useState([
+    {
+        "id": 1, 
+        "task": "Сделать дз",
+        "isDone": false,
+        "date": "08.08.2024",
+        "type": "personal"
+    },
+    {
+        "id": 2, 
+        "task": "Подготовить отчёт",
+        "isDone": false,
+        "date": "09.08.2024",
+        "type": "work"
+    },
+    {
+        "id": 3, 
+        "task": "Сходить в спортзал",
+        "isDone": true,
+        "date": "07.08.2024",
+        "type": "personal"
+    },
+    {
+        "id": 4, 
+        "task": "Встреча с клиентом",
+        "isDone": false,
+        "date": "10.08.2024",
+        "type": "work"
+    },
+    {
+        "id": 5, 
+        "task": "Купить продукты",
+        "isDone": false,
+        "date": "08.08.2024",
+        "type": "personal"
+    },
+    {
+        "id": 6, 
+        "task": "Провести собрание",
+        "isDone": false,
+        "date": "11.08.2024",
+        "type": "work"
+    },
+    {
+        "id": 7, 
+        "task": "Прочитать книгу",
+        "isDone": false,
+        "date": "08.08.2024",
+        "type": "personal"
+    },
+    {
+        "id": 8, 
+        "task": "Отправить электронные письма",
+        "isDone": true,
+        "date": "07.08.2024",
+        "type": "work"
+    },
+    {
+        "id": 9, 
+        "task": "Записаться на курсы",
+        "isDone": false,
+        "date": "09.08.2024",
+        "type": "personal"
+    },
+    {
+        "id": 10, 
+        "task": "Обновить проектную документацию",
+        "isDone": false,
+        "date": "10.08.2024",
+        "type": "work"
+    }
+])
+
+const [work, setWork] = useState([
+    {
+        "id": 1, 
+        "task": "Сделать дз",
+        "isDone": false,
+        "date": "08.08.2024",
+        "type": "personal"
+    },
+    {
+        "id": 2, 
+        "task": "Подготовить отчёт",
+        "isDone": false,
+        "date": "09.08.2024",
+        "type": "work"
+    },
+    {
+        "id": 3, 
+        "task": "Сходить в спортзал",
+        "isDone": true,
+        "date": "07.08.2024",
+        "type": "personal"
+    },
+    {
+        "id": 4, 
+        "task": "Встреча с клиентом",
+        "isDone": false,
+        "date": "10.08.2024",
+        "type": "work"
+    },
+    {
+        "id": 5, 
+        "task": "Купить продукты",
+        "isDone": false,
+        "date": "08.08.2024",
+        "type": "personal"
+    },
+    {
+        "id": 6, 
+        "task": "Провести собрание",
+        "isDone": false,
+        "date": "11.08.2024",
+        "type": "work"
+    },
+    {
+        "id": 7, 
+        "task": "Прочитать книгу",
+        "isDone": false,
+        "date": "08.08.2024",
+        "type": "personal"
+    },
+    {
+        "id": 8, 
+        "task": "Отправить электронные письма",
+        "isDone": true,
+        "date": "07.08.2024",
+        "type": "work"
+    },
+    {
+        "id": 9, 
+        "task": "Записаться на курсы",
+        "isDone": false,
+        "date": "09.08.2024",
+        "type": "personal"
+    },
+    {
+        "id": 10, 
+        "task": "Обновить проектную документацию",
+        "isDone": false,
+        "date": "10.08.2024",
+        "type": "work"
+    }
+])
 
 
   
  
   return (
     <>
-        <Header/>
+        <Header work={work} setWork={setWork} personal={personal} setPersonal={setPersonal}/>
         <main className="bg-[#F3F4F6] h-screen">
             <div className="container m-auto pt-10 flex justify-between">
-                <MainBlockType type="work" arr={arr.work} setArr={setArr}/>
-                <MainBlockType type="personal"  arr={arr.personal} setArr={setArr}/>
+                <MainBlockType type="work" arr={work} setArr={setWork}/>
+                <MainBlockType type="personal"  arr={personal} setArr={setPersonal}/>
             </div>
         </main>
     </>
